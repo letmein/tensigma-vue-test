@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <nav id="nav" class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-menu">
         <div class="navbar-start">
