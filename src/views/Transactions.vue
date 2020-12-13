@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Transactions</h1>
     <div class="buttons mt-4">
       <button
         type="button"
@@ -80,14 +79,17 @@ export default {
     reset() {
       this.transactions = []
     },
-    addTransaction(data) {
+    parseTransactionData(data) {
       const { x: { hash, inputs, out } } = JSON.parse(data)
 
       const fromAddr = inputs.map(({ prev_out: { addr } }) => addr)
       const toAddr = out.map(({ addr }) => addr)
       const amount = out.reduce((acc, { value }) => acc + value, 0)
 
-      const tx = { hash, fromAddr, toAddr, amount }
+      return { hash, fromAddr, toAddr, amount }
+    },
+    addTransaction(data) {
+      const tx = this.parseTransactionData(data)
 
       this.transactions = [...this.transactions, tx]
     },

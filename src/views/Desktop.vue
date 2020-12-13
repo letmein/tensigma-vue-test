@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h1>
-      Desktop
-    </h1>
     <div
       class="container desktop-tile-container has-background-grey-lighter"
       v-bind:class="{ 'is-resizing': action === RESIZE }"
